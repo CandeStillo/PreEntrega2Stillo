@@ -1,4 +1,84 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  h1 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    padding: 20px;
+    color: #3498db;
+    background-color: #B0F5A7;
+  }
+  
+
+  .container {
+    font-family: 'Nunito', sans-serif;
+    margin: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+  }
+  
+ 
+  form {
+    font-family: 'Nunito', sans-serif;
     margin: 20px;
     padding: 20px;
+  }
+  
+
+  .card {
+    font-family: 'Nunito', sans-serif;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .catalogo, .peliculas {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+.count{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #B0F5A7;
+  background-color: #B0F5A7;
+  padding: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.count:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#listaPeliculas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #3498db;
+  padding: 10px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  margin: 10px;
+  flex-direction: column;
+}
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }

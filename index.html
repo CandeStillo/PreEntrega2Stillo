@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>CandeFlix</title>
 </head>
 <body>
-  <h1>JavaScript</h1>
+  <h1>CandeFlix</h1>
   <div class="container">
     <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand">Navbar</a>
+              <a class="navbar-brand">Home</a>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
             </div>
           </nav>
-        <form>
+        <form id="form">
           <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -36,8 +39,42 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <div class="catalogo"> </div>
     </div>
-    <div class="catalogo"> </div>
-    <script src="src/script.js"></script>
+    <div class="peliculas">
+      <div class="card" style="width: 18rem;">
+        <img src="img/Barbie2.jpg" class="card-img-top" alt="movieBarbie">
+        <div class="card-body">
+          <h5 class="card-title">Barbie</h5>
+          <p class="card-text">Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.</p>
+          <button href="#" class="btn btn-primary" id="lista1">My list</button>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="img/aboutTime.png" class="card-img-top" alt="movieAboutTime">
+        <div class="card-body">
+          <h5 class="card-title">About Time</h5>
+          <p class="card-text"> When Tim Lake is 21, his father tells him a secret: The men in their family can travel through time. Although he can't change history, Tim resolves to improve his life by getting a girlfriend. </p>
+          <button href="#" class="btn btn-primary" id="lista2">My list</button>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="img/it.png" class="card-img-top" alt="movieIt">
+        <div class="card-body">
+          <h5 class="card-title">IT</h5>
+          <p class="card-text">At the age of 21, Tim discovers he can travel in time and change what happens and has happened in his own life. His decision to make his world a better place by getting a girlfriend turns out not to be as easy as you might think.</p>
+          <button href="#" class="btn btn-primary" id="lista3">My list</button>
+        </div>
+      </div>
+      
+    </div>
+    <p class="movies">Movies added:</p>
+    <div id="listaPeliculas">
+
+    </div>
+    <div class="count">
+      <p>My List: <span id="cantidad">0</span></p>
+    </div>
+    <script src="src/app.js"></script>
   </body>
 </html>
