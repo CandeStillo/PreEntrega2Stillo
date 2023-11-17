@@ -1,0 +1,16 @@
+{
+    "peliculas":[
+        {
+            "nombre": "Barbie",
+            "duracion": "2hs"
+        },
+        {
+            "nombre": "About Time",
+            "duracion": "3hs"
+        },
+        {
+            "nombre": "IT",
+            "duracion": "2.30hs"
+        }
+    ]
+}

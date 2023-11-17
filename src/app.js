@@ -14,9 +14,22 @@ function validarFormulario(e){
     //Agregar al Session Storage
     sessionStorage.setItem("Email: ", `${mail.value}`);
     sessionStorage.setItem("Password:", `${contrasenia.value}`)
+    //Verificar el mail y la contraseña
+    if (mail.value === 'mmcandestillo@gmail.com' && contrasenia.value === 'candela') {
+        Swal.fire("Welcome!");
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Wrong email or password!",
+        });
+          
+    }
 }
 
-
+//Agregar al Session Storage
+sessionStorage.setItem("Email: ", `${mail.value}`);
+sessionStorage.setItem("Contraseña: ", `${contrasenia.value}`)
 
 //Agregar a la lista
 let lista = []
@@ -65,27 +78,9 @@ function actualizarCantidad() {
 
 let listaPeliculas = document.getElementById("listaPeliculas");
 
-
-/* function agregarPelicula(peliculaNombre) {
-    lista.push(peliculaNombre);
-  
-    // Crear un elemento de lista para la película y mostrarlo en el HTML
-    let peliculaElement = document.createElement("li");
-    peliculaElement.textContent = peliculaNombre;
-    listaPeliculas.appendChild(peliculaElement);
-  
-    actualizarCantidad();
-}}
-*/
-/* 
-function agregarPelicula(peliculaNombre) {
-  lista.push(peliculaNombre);
-  let peliculaElement = document.createElement("li");
-  peliculaElement.textContent = peliculaNombre;
-  listaPeliculas.appendChild(peliculaElement);
-} */
+//Mostrar lista en Local Storage
 function agregarPelicula(peliculaNombre){
-    /* lista.push(peliculaNombre); */
+    localStorage.setItem('peliculas', JSON.stringify(lista));
     let peliculaElement = document.createElement("li")
     peliculaElement.textContent = peliculaNombre;
     listaPeliculas.appendChild(peliculaElement)
@@ -103,17 +98,78 @@ function agregarPelicula(peliculaNombre){
   }); 
 
 
-//Almacenar lista en local storage
-localStorage.setItem(`pelicula`, JSON.stringify(lista.length));
-const peliculasGuardadas = JSON.parse(localStorage.getItem(`pelicula`));
-if (peliculasGuardadas){
-    lista = peliculasGuardadas;
-    actualizarCantidad();
-    actualizarVisualizacionLista();
-} else {
-    console.log("No se encontraron datos en el Local Storage")
-}
+//Librerias - Agregar cartel cada vez que se agrega una pelicula a la lista
+const btn = document.querySelector("#lista1")
+const btn2 = document.querySelector("#lista2")
+const btn3 = document.querySelector("#lista3")
 
-function actualizarVisualizacionLista() {
-    console.log('Lista actualizada en la página:', lista);
+btn.addEventListener("click", () => {
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Movie added to the list",
+        showConfirmButton: false,
+        timer: 1500
+      });
+})
+
+btn2.addEventListener("click", () => {
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Movie added to the list",
+        showConfirmButton: false,
+        timer: 1500
+      });
+})
+
+btn3.addEventListener("click", ()=>{
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Movie added to the list",
+        showConfirmButton: false,
+        timer: 1500
+      });
+})
+
+//Llamar a JSON y mostrar peliculas disponibles
+async function cargarPeliculas(){
+    try {
+        const response = await fetch("./data.json")
+        const data = await response.json()
+        const peliculas = data.peliculas
+        console.log(data)
+        console.log(peliculas)
+    } catch (error) {
+        console.error("Error al cargar las peliculas")
+    }
 }
+cargarPeliculas()
+
+//Mostrar duracion de las peliculas en HTML
+
+function mostrarPeliculas() {
+    const mostrar = document.querySelector("#mostrar");
+  
+    // Cargar y parsear data.json
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        //Limpiar contenido
+        mostrar.innerHTML = ''; 
+        // Iterar sobre las películas y mostrar la duración
+        data.peliculas.forEach(pelicula => {
+          let peliculaElement = document.createElement("li");
+          peliculaElement.textContent = `${pelicula.nombre} - Length: ${pelicula.duracion}`;
+          mostrar.appendChild(peliculaElement);
+        });
+      })
+      .catch(error => console.error('Error charging length of movies', error));
+  }
+  //Agregar listener al boton
+  const btnMostrar = document.querySelector("#btnMostrar");
+  btnMostrar.addEventListener("click", function(){
+    mostrarPeliculas();
+  })
+  
